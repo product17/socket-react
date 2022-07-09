@@ -1,0 +1,21 @@
+.App {
+  background-color: #282c34;
+  text-align: center;
+}
+
+.home-text {
+  font-size: 24px;
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.signup-btn {
+  margin-right: 10px;
+}
