@@ -6,7 +6,7 @@ import Link from 'react-router-dom/Link';
 import Row from 'react-bootstrap/Row';
 import { useDispatch, useSelector } from 'react-redux';
 import { RedirectCondition } from '../../../components';
-import { createUser } from '../../../fetches';
+import { authUser } from '../../../fetches';
 import {
   getCurrentUser,
   getPassword,
@@ -17,8 +17,8 @@ import {
 } from '../../../reducers';
 import './login.css';
 
-const createUserThunk = (user, dispatch) => {
-  createUser(user).then((res) => {
+const authUserThunk = (user, dispatch) => {
+  authUser(user).then((res) => {
     dispatch(setCurrentUser(res));
   }).catch((err) => {
     console.error(err);
@@ -43,9 +43,6 @@ export function Login() {
               dispatch(setUsername(event.target.value));
             }}
           />
-          <Form.Text className='text-muted'>
-            Select a username
-          </Form.Text>
         </Form.Group>
       </Row>
 
@@ -69,7 +66,7 @@ export function Login() {
         <Button
           size='lg'
           onClick={() => {
-            createUserThunk({
+            authUserThunk({
               password,
               username,
             }, dispatch);

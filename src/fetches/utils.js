@@ -1,4 +1,6 @@
-export const postData = (url = '', data = {}) => fetch(url, {
+import { environments as env } from './config';
+
+export const postData = (url = '', data = {}) => fetch(env.dev.baseUrl + url, {
   method: 'POST', // *GET, POST, PUT, DELETE, etc.
   mode: 'cors', // no-cors, *cors, same-origin
   cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached

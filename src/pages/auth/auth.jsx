@@ -10,7 +10,9 @@ import {
 } from 'react-router-dom';
 import { MainNav } from '../../components';
 import { Login } from './login';
-import { Create } from "./create";
+import { Create } from './create';
+import { ForgotPassword } from './forgot-password';
+import ResetPassword from './reset-password/reset-password';
 
 export function Auth() {
   const match = useRouteMatch();
@@ -30,7 +32,10 @@ export function Auth() {
                 <Create />
               </Route>
               <Route path={`${match.path}/forgot-password`}>
-                <p>Forgot Password</p>
+                <ForgotPassword />
+              </Route>
+              <Route path={`${match.path}/reset-password`}>
+                <ResetPassword />
               </Route>
               <Route path='/'>
                 <Row>
